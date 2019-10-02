@@ -1,0 +1,23 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+  int A, B, C, D, P;
+  cin >> A >> B >> C >> D >> P;
+
+ if(P<C){
+ 	if(P*A<B){
+	cout<< P*A << endl ;
+	}else{
+	cout<< B << endl ;
+	}
+        
+        }else{
+
+	if(P*A<(P-C)*D+B){
+	cout<<P*A << endl ;
+	}else{
+	cout<<(P-C)*D+B<< endl;}
+	}
+  return(0);
+}
