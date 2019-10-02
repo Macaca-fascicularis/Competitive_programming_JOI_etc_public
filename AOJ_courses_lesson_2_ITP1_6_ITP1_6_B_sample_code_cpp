@@ -1,0 +1,60 @@
+//Finding Missing Cardsの解答例
+//できるだけ、コメントを丁寧に書いています。（検索で出てくるものは、アルゴリズムがわかりづらいものが多いので）
+
+#include <iostream>
+using namespace std;
+int main(){
+
+int num;			//「トランプ」の読み込み回数を代入する変数
+int spade[14] ; 		//spade[0]からspade[13]までの、14個の配列変数を用意
+int heart[14] ; 		//heart[0]からheart[13]までの、14個の配列変数を用意
+int club[14] ;		//club[0]からclub[13]までの、14個の配列変数を用意
+int diamond[14] ;		//diamond[0]からdiamond[13]までの、14個の配列変数を用意
+char card_type[2] ;	//カードがS,H,C,Dのどれであるかを代入する、文字列変数（1文字分）
+int card_number;		//カードの番号(1～12)を代入する変数
+
+//配列変数spade,heart,club,diamondの初期化(全てを一度、0にする)
+	for(int i=0 ; i <= 13; i =i + 1){
+		spade[i] = 0;
+		heart[i] = 0;
+		club[i] = 0; 
+		diamond[i] = 0;
+	}
+
+//カード情報の読み込み
+cin>>num;	//1行目の数字を変数numに読み込み、回数を代入する
+	for(int i=0 ; i <= num; i =i + 1){	//「トランプ」をnum回、読み込む
+		cin >> card_type[0] ;	// 変数card_typeに、S,H,C,Dのどれかを代入する
+		cin >> card_number;	//変数card_numberに、カード番号を格納する
+
+		if( card_type[0] == 'S'){ spade[card_number] = 1 ; } 		//S numberなら、spade[card_number]を0から1にする
+		if( card_type[0] == 'H'){ heart[card_number] = 1 ; }		//H numberなら、heart[card_number]を0から1にする
+		if( card_type[0] == 'C'){ club[card_number] = 1 ; }		//C numberなら、club[card_number]を0から1にする
+		if( card_type[0] == 'D'){ diamond[card_number] = 1 ; }	//D numberなら、diamond[card_number]を0から1にする
+	}
+
+//カード情報の出力
+	//スペード分( spade[1]～spade[13]の値を、spade[1]... spade[2]...と1刻みでチェックし、0であれば「S 数字」と出力する。 )
+	for(int i=1 ; i <= 13; i =i + 1){
+		if ( spade[i] == 0){cout << "S" << " " << i << endl;}
+	}
+
+	//ハート分( heart[1]～heart[13]の値を、heart[1]... heart[2]...と1刻みでチェックし、0であれば「H 数字」と出力する。 )
+	for(int i=1 ; i <= 13; i =i + 1){
+		if ( heart[i] == 0){cout << "H" << " " << i << endl;}
+	}
+
+	//クラブ分( club[1]～club[13]の値を、club[1]... club[2]...と1刻みでチェックし、0であれば「C 数字」と出力する。 )
+	for(int i=1 ; i <= 13; i =i + 1){
+		if ( club[i] == 0){cout << "C" << " " << i << endl;}
+	}
+
+	//ダイヤ分( diamond[1]～diamond[13]の値を、diamond[1]... diamond[2]...と1刻みでチェックし、0であれば「D 数字」と出力する。 )
+	for(int i=1 ; i <= 13; i =i + 1){
+		if ( diamond[i] == 0){cout << "D" << " " << i << endl;}
+	}
+
+    return 0;
+}
+
+
